@@ -2,13 +2,14 @@
 layout: post
 title:  "Shell script set command實用參數"
 date:   2017-08-04 13:25:35 +0800
-categories: [shell script]
+categories: [shell-script]
 tags: [shell]
 ---
 
-# set -o pipefail
+## set -o pipefail
 表示在pipe連接的命令中，只要有任何一個非0值回傳，則整個命令即停止並回傳該exit
 code，即使最後一個命令是成功的。
+
 Example:
 ```
 set -o pipefail
@@ -17,8 +18,9 @@ curl -s http://notexist.net/ | echo
 Before: exit code = 0
 After: exit code = 6
 
-# set -e
+## set -e
 表示只要有command失敗即終止,等同於&&
+
 Example:
 ```
 set -e
@@ -35,19 +37,20 @@ After
 Nothing print
 ```
 
-# set -x
+## set -x
 把執行的command列印出來，特別適合deploy script來印出script執行的步驟
+
 Example:
 ```
 set -x
 echo 1
 ```
 
-* Before
+Before
 ```
 1
 ```
-* After
+After
 ```
 +echo 1
 1
